@@ -1,8 +1,8 @@
 package com.hotel_booking.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -17,11 +17,14 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String bookingConfrimationCode;
-    private String roomType;
+    private String bookingConfirmationCode; // when booking , the confirmationCode is to be added
+    @NotBlank(message = "Please enter roomType")
+    private String roomType; 
     private BigDecimal roomPrice;
-    private String roomPhotoUrl;
-    private String roomImg;
+    @NotBlank(message = "Please enter room photo")
+    private String roomPhotoUrl; // to call the image from anywhere
+
+    private String roomImg; // to call the image with name
     private String roomDescription;
     @OneToMany(mappedBy = "room",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Booking> bookingList=new ArrayList<>();
@@ -30,7 +33,7 @@ public class Room {
     public String toString() {
         return "Room{" +
                 "id=" + id +
-                ", bookingConfrimationCode='" + bookingConfrimationCode + '\'' +
+                ", bookingConfirmationCode='" + bookingConfirmationCode + '\'' +
                 ", roomType='" + roomType + '\'' +
                 ", roomPrice=" + roomPrice +
                 ", roomPhotoUrl='" + roomPhotoUrl + '\'' +

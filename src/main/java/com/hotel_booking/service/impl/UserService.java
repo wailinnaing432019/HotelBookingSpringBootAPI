@@ -117,11 +117,11 @@ public class UserService implements IUserService {
             response.setUser(userDTO);
         }catch (OurException e){
             response.setStatusCode(400);
-            response.setMessage("Error getting All users "  + e.getMessage());
+            response.setMessage("Error getting Booking Histories "  + e.getMessage());
         }
         catch (Exception e){
             response.setStatusCode(500);
-            response.setMessage("Error getting All users "  + e.getMessage());
+            response.setMessage("Error getting Booking Histories "  + e.getMessage());
         }
         return response;
     }

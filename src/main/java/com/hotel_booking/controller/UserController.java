@@ -24,6 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/get-by-id/{userId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Response> getUserById(@PathVariable("userId") String userId){
 
         Response response= userService.getUserById(userId);

@@ -44,6 +44,7 @@ public class Utils {
        roomDTO.setRoomType(room.getRoomType());
        roomDTO.setRoomPrice(room.getRoomPrice());
        roomDTO.setRoomDescription(room.getRoomDescription());
+        // transform to real work for image url for now
        roomDTO.setRoomPhotoUrl("http://localhost:8080/uploads/"+room.getRoomImg());
 
        return roomDTO;
@@ -55,8 +56,7 @@ public class Utils {
         roomDTO.setId(room.getId());
         roomDTO.setRoomType(room.getRoomType());
         roomDTO.setRoomPrice(room.getRoomPrice());
-//        roomDTO.setRoomDescription(room.getRoomDescription());
-//        roomDTO.setRoomPhotoUrl(room.getRoomPhotoUrl());
+        // transform to real work for image url for now
         roomDTO.setRoomPhotoUrl("http://localhost:8080/uploads/"+room.getRoomImg());
 
         if(room.getBookingList()!=null){

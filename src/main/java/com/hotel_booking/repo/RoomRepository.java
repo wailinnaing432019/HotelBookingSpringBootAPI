@@ -21,5 +21,5 @@ public interface RoomRepository extends JpaRepository<Room,Long> {
     List<Room> getAllAvailableRooms();
 
 
-    Optional<Room> findByRoomImg(String image);
+    Optional<Room> findByRoomImg(String image); // to output the image url to the user
 }

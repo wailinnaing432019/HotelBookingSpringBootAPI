@@ -1,5 +1,6 @@
 package com.hotel_booking.dto;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -7,6 +8,7 @@ import lombok.Data;
 public class LoginRequest {
 
     @NotBlank(message="Email must be filled!")
+    @Email(message="Email must be an email address")
     private String email;
 
     @NotBlank(message="Password must be filled!")

@@ -3,6 +3,7 @@ package com.hotel_booking.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -27,6 +28,7 @@ public class User implements UserDetails {
     private String name;
     @NotBlank(message="Phone Number is required")
     @NotNull(message = "Phone is required")
+    @Pattern(regexp = "^\\d{11}$", message="Phone number must be 11 digits")
     private String phoneNumber;
     private String password;
     private String role;

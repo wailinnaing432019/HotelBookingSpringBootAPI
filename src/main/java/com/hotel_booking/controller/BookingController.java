@@ -3,6 +3,7 @@ package com.hotel_booking.controller;
 import com.hotel_booking.dto.Response;
 import com.hotel_booking.entity.Booking;
 import com.hotel_booking.service.interfac.IBookingService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,9 +18,9 @@ public class BookingController {
     @PostMapping("/book-room/{roomId}/{userId}")
     @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public ResponseEntity<Response> saveBookings(
-            @PathVariable("roomId") Long roomId,
-            @PathVariable("userId") Long userId,
-            @RequestBody Booking bookingRequest
+            @PathVariable("roomId") @Valid  Long roomId,
+            @PathVariable("userId") @Valid Long userId,
+            @RequestBody @Valid Booking bookingRequest
             ){
         Response response=bookingService.saveBooking(roomId, userId, bookingRequest);
         return ResponseEntity.status(response.getStatusCode()).body(response);
